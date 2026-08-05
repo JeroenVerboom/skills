@@ -36,11 +36,12 @@ body { margin: 0; background: var(--paper); color: var(--n950); font-family: var
 .masthead .subject { color: var(--n600); }
 .seclabel { display: flex; align-items: center; gap: 12px; margin: 64px 0 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--n800); }
 .seclabel::before { content: ""; width: 32px; height: 1px; background: currentColor; opacity: 0.5; }
-.seclabel--agree { color: var(--forest); }
-.seclabel--clash { color: var(--terra-deep); }
+.sechead { margin: 72px 0 20px; font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.2; color: var(--n950); }
+.sechead--agree { color: var(--forest); }
+.sechead--clash { color: var(--terra-deep); }
 .verdict { margin-top: 48px; padding: 56px 48px; background-color: var(--n100); background-image: repeating-linear-gradient(45deg, rgba(26, 26, 26, 0.06) 0 1px, transparent 1px 8px); color: var(--n950); border: var(--border-ink); border-radius: var(--radius-card); }
-.verdict .seclabel { margin: 0 0 20px; color: var(--n800); }
-.verdict h1 { margin: 0; max-width: 24ch; font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 48px); line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+.verdict-badge { display: inline-block; padding: 4px 12px; border: var(--border-ink); border-radius: 2px; background: var(--paper); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-deep); }
+.verdict h1 { margin: 24px 0 0; max-width: 24ch; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(30px, 5vw, 48px); line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
 .verdict .next-action { display: inline-block; margin-top: 28px; padding: 12px 24px; background: var(--terra); color: var(--paper); border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; }
 .verdict .next-action:focus-visible { outline: 2px solid var(--terra-deep); outline-offset: 3px; }
 .verdict .rationale { margin: 24px 0 0; max-width: 62ch; font-family: var(--serif); font-size: 19px; color: var(--n800); }
@@ -50,7 +51,7 @@ body { margin: 0; background: var(--paper); color: var(--n950); font-family: var
 .rows span { font-family: var(--serif); color: var(--n800); }
 .clash { border-top: var(--border-ink); padding: 20px 0; }
 .clash + .clash { border-top: var(--hairline); }
-.clash h3 { margin: 0 0 10px; font-size: 15px; font-weight: 600; color: var(--terra-deep); }
+.clash h3 { margin: 0 0 10px; font-size: 16px; font-weight: 600; color: var(--n950); }
 .clash .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .clash .side { font-family: var(--serif); color: var(--n800); margin: 0; }
 .clash .side b { display: block; font-family: var(--sans); font-size: 13px; color: var(--n950); }
@@ -84,19 +85,19 @@ a:hover { color: var(--terra); }
   </div>
 
   <section class="verdict">
-    <p class="seclabel">The verdict</p>
+    <span class="verdict-badge">The verdict</span>
     <h1>Negotiate the extension, but only after building a real alternative.</h1>
     <a class="next-action" href="#panel">Qualify one challenger on a modular slice first</a>
     <p class="rationale">Kraljic places this contract in the strategic quadrant, where a commodity tender destroys more value than it recovers; Williamson shows why the switching threat is not credible today; Voss supplies the leverage once one challenger is genuinely qualified.</p>
   </section>
 
-  <p class="seclabel seclabel--agree">Where the experts agree</p>
+  <h2 class="sechead sechead--agree">Where the experts agree</h2>
   <ul class="rows">
     <li><strong>Leverage comes from alternatives, not pressure</strong><span>All three frameworks land on the same point: without a qualified second supplier, every negotiation tactic is theatre the incumbent can price in.</span></li>
     <li><strong>The incumbent's information advantage is the real cost</strong><span>Years of exclusive operation mean only the incumbent knows the true cost base; each expert flags restoring information symmetry as the first move.</span></li>
   </ul>
 
-  <p class="seclabel seclabel--clash">Where the experts clash</p>
+  <h2 class="sechead sechead--clash">Where the experts clash</h2>
   <div class="clash">
     <h3>Competition versus lock-in</h3>
     <div class="sides">
@@ -112,7 +113,7 @@ a:hover { color: var(--terra); }
     </div>
   </div>
 
-  <p class="seclabel" id="panel">The panel</p>
+  <h2 class="sechead" id="panel">The panel</h2>
   <div class="panel">
     <article class="expert">
       <h3>Peter Kraljic</h3>
@@ -146,7 +147,7 @@ a:hover { color: var(--terra); }
     </article>
   </div>
 
-  <p class="seclabel">Who to study next</p>
+  <h2 class="sechead">Who to study next</h2>
   <ul class="study">
     <li><b>Peter Kraljic</b> — "Purchasing must become supply management" (Harvard Business Review, 1983). Most people negotiate first and classify never; this article is the four-quadrant map that says which game you are actually playing.</li>
   </ul>
