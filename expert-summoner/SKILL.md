@@ -160,7 +160,7 @@ Design rules the report must obey (all encoded in the CSS, do not override them)
 - Forest and terracotta are meaning, not decoration: forest marks agreement (the agree label), terracotta marks tension and action (the clash labels, the next-action fill). Terracotta stays well under 10% of the page.
 - The hairline texture appears once, on the verdict frame only.
 - 2px ink borders and 40px radius on cards and the verdict band; 1px hairlines inside; no shadows, no gradients.
-- Two type families only: EB Garamond for statements and reading text (falls back to Georgia), Inter for labels and UI (falls back to system-ui). UPPERCASE only at 12px label-caps. Sentence case everywhere else. No emoji, no exclamation marks.
+- Two type families only: EB Garamond for statements and reading text (falls back to Georgia), Inter for labels and UI (falls back to system-ui). UPPERCASE only at 12px label-caps. Sentence case everywhere else. No emoji, no exclamation marks, no em dashes: use a comma, a colon or a new sentence instead.
 - Hierarchy is rhetorical: a glance must reveal verdict, then confidence, then tradeoffs, then who said it, then what to read next, in that order. Remove any signal that competes without adding meaning.
 
 Open the HTML file after generating it.
