@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expert panel — Tender or extend the warehouse-automation contract?</title>
+  <style>
+/* Verboom Editorial report styles for expert-summoner output (inlined). */
+:root {
+  --paper: #fffdf0;
+  --cream: #fcfaed;
+  --ink: #1a1a1a;
+  --terra: #c56c47;
+  --terra-deep: #783111;
+  --forest: #0b3d33;
+  --mint-dim: #a1d0c2;
+  --stone: #e9e6d6;
+  --n50: #f6f4e7;
+  --n100: #f0eee1;
+  --n600: #747878;
+  --n800: #444748;
+  --n950: #1b1c15;
+  --on-forest: #fffdf0;
+  --on-forest-muted: rgba(255, 253, 240, 0.7);
+  --serif: "EB Garamond", Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, sans-serif;
+  --border-ink: 2px solid var(--ink);
+  --hairline: 1px solid var(--stone);
+  --radius-card: 40px;
+  --radius-frame: 8px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--n950); font-family: var(--sans); font-size: 17px; line-height: 1.6; }
+.shell { max-width: 960px; margin: 0 auto; padding: 48px 24px 96px; }
+.masthead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 24px; padding-bottom: 20px; border-bottom: var(--border-ink); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.masthead .subject { color: var(--n600); }
+.seclabel { display: flex; align-items: center; gap: 12px; margin: 64px 0 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--n800); }
+.seclabel::before { content: ""; width: 32px; height: 1px; background: currentColor; opacity: 0.5; }
+.seclabel--agree { color: var(--forest); }
+.seclabel--clash { color: var(--terra-deep); }
+.verdict { margin-top: 48px; padding: 56px 48px; background-color: var(--n100); background-image: repeating-linear-gradient(45deg, rgba(26, 26, 26, 0.06) 0 1px, transparent 1px 8px); color: var(--n950); border: var(--border-ink); border-radius: var(--radius-card); }
+.verdict .seclabel { margin: 0 0 20px; color: var(--n800); }
+.verdict h1 { margin: 0; max-width: 24ch; font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 48px); line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+.verdict .next-action { display: inline-block; margin-top: 28px; padding: 12px 24px; background: var(--terra); color: var(--paper); border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; }
+.verdict .next-action:focus-visible { outline: 2px solid var(--terra-deep); outline-offset: 3px; }
+.verdict .rationale { margin: 24px 0 0; max-width: 62ch; font-family: var(--serif); font-size: 19px; color: var(--n800); }
+.rows { margin: 0; padding: 0; list-style: none; border-top: var(--border-ink); }
+.rows li { padding: 16px 0; border-bottom: var(--hairline); }
+.rows strong { display: block; font-size: 15px; color: var(--n950); }
+.rows span { font-family: var(--serif); color: var(--n800); }
+.clash { border-top: var(--border-ink); padding: 20px 0; }
+.clash + .clash { border-top: var(--hairline); }
+.clash h3 { margin: 0 0 10px; font-size: 15px; font-weight: 600; color: var(--terra-deep); }
+.clash .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.clash .side { font-family: var(--serif); color: var(--n800); margin: 0; }
+.clash .side b { display: block; font-family: var(--sans); font-size: 13px; color: var(--n950); }
+@media (max-width: 700px) { .clash .sides { grid-template-columns: 1fr; } }
+.panel { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 760px) { .panel { grid-template-columns: 1fr; } }
+.expert { border: var(--border-ink); border-radius: var(--radius-card); padding: 28px; background: var(--cream); }
+.expert h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 26px; }
+.expert .cred { margin: 4px 0 0; font-size: 13px; color: var(--n600); }
+.expert .framework { margin: 14px 0 0; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--n800); }
+.expert .diagnosis { margin: 10px 0 0; font-family: var(--serif); font-size: 18px; color: var(--n800); }
+.expert details { margin-top: 14px; border-top: var(--hairline); padding-top: 12px; }
+.expert summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--terra-deep); }
+.expert details p { font-family: var(--serif); color: var(--n800); }
+.study { border-top: var(--border-ink); margin: 0; padding: 0; list-style: none; }
+.study li { padding: 16px 0; border-bottom: var(--hairline); font-family: var(--serif); color: var(--n800); }
+.study b { font-family: var(--sans); font-size: 15px; color: var(--n950); }
+footer { margin-top: 72px; padding-top: 20px; border-top: var(--hairline); font-size: 13px; color: var(--n600); }
+footer .disclaimer { max-width: 70ch; }
+a { color: var(--forest); }
+a:hover { color: var(--terra); }
+:focus-visible { outline: 2px solid var(--terra-deep); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="masthead">
+    <span>Expert panel</span>
+    <span class="subject">Tender the warehouse-automation contract, or extend with the incumbent?</span>
+  </div>
+
+  <section class="verdict">
+    <p class="seclabel">The verdict</p>
+    <h1>Negotiate the extension, but only after building a real alternative.</h1>
+    <a class="next-action" href="#panel">Qualify one challenger on a modular slice first</a>
+    <p class="rationale">Kraljic places this contract in the strategic quadrant, where a commodity tender destroys more value than it recovers; Williamson shows why the switching threat is not credible today; Voss supplies the leverage once one challenger is genuinely qualified.</p>
+  </section>
+
+  <p class="seclabel seclabel--agree">Where the experts agree</p>
+  <ul class="rows">
+    <li><strong>Leverage comes from alternatives, not pressure</strong><span>All three frameworks land on the same point: without a qualified second supplier, every negotiation tactic is theatre the incumbent can price in.</span></li>
+    <li><strong>The incumbent's information advantage is the real cost</strong><span>Years of exclusive operation mean only the incumbent knows the true cost base; each expert flags restoring information symmetry as the first move.</span></li>
+  </ul>
+
+  <p class="seclabel seclabel--clash">Where the experts clash</p>
+  <div class="clash">
+    <h3>Competition versus lock-in</h3>
+    <div class="sides">
+      <p class="side"><b>Peter Kraljic</b>Strategic items call for partnership and joint development, not a public tender that signals distrust and invites underbidding on quality.</p>
+      <p class="side"><b>Oliver Williamson</b>The asset specificity is the trap: whoever you partner with gains hold-up power, so governance clauses matter more than the partner choice.</p>
+    </div>
+  </div>
+  <div class="clash">
+    <h3>Speed versus symmetry</h3>
+    <div class="sides">
+      <p class="side"><b>Chris Voss</b>Open the conversation now; calibrated questions surface the incumbent's constraints faster than any benchmark study.</p>
+      <p class="side"><b>Peter Kraljic</b>Negotiating before the portfolio analysis is done means negotiating blind; classification comes first.</p>
+    </div>
+  </div>
+
+  <p class="seclabel" id="panel">The panel</p>
+  <div class="panel">
+    <article class="expert">
+      <h3>Peter Kraljic</h3>
+      <p class="cred">Former McKinsey director; author of the 1983 HBR article that founded modern procurement strategy</p>
+      <p class="framework">Kraljic portfolio matrix</p>
+      <p class="diagnosis">You are about to treat a strategic item as a leverage item, which is the classic misclassification.</p>
+      <details>
+        <summary>Full analysis</summary>
+        <p>Plotting profit impact against supply risk puts warehouse automation firmly in the strategic quadrant: high impact, few capable suppliers, high switching cost. The playbook for that quadrant is partnership, joint performance targets and long-horizon contracting. A public tender belongs to the leverage quadrant, where suppliers are interchangeable. Run the classification with your own numbers before any negotiation is scheduled; if the item scores leverage after all, tender without hesitation.</p>
+      </details>
+    </article>
+    <article class="expert">
+      <h3>Oliver Williamson</h3>
+      <p class="cred">Nobel laureate in economics; founder of transaction cost economics</p>
+      <p class="framework">Transaction cost economics and asset specificity</p>
+      <p class="diagnosis">The real question is not who supplies, but what governance survives the dependency you have already created.</p>
+      <details>
+        <summary>Full analysis</summary>
+        <p>Site-specific automation is the textbook case of asset specificity: once installed, both sides are locked in, and the contract, not the market, does the governing. A tender pretends the market can still discipline the incumbent; it cannot, and the incumbent knows it. Spend the effort on the extension's governance instead: open-book costing, benchmarking rights, step-in clauses and a defined exit path. Those clauses are what make the relationship contestable again.</p>
+      </details>
+    </article>
+    <article class="expert">
+      <h3>Chris Voss</h3>
+      <p class="cred">Former FBI lead hostage negotiator; author of "Never Split the Difference"</p>
+      <p class="framework">Tactical empathy and calibrated questions</p>
+      <p class="diagnosis">You are preparing a threat you cannot execute, and the other side will hear that in the first meeting.</p>
+      <details>
+        <summary>Full analysis</summary>
+        <p>A tender you do not mean is a bluff, and bluffs leak. Instead, make the constraint the incumbent's problem: "How am I supposed to defend a five-year extension to my board without a market reference?" forces them to argue your case. Label their position, ask calibrated how-questions, and let the qualified challenger, once real, do the talking without ever being mentioned. The goal is a better extension, discovered by them.</p>
+      </details>
+    </article>
+  </div>
+
+  <p class="seclabel">Who to study next</p>
+  <ul class="study">
+    <li><b>Peter Kraljic</b> — "Purchasing must become supply management" (Harvard Business Review, 1983). Most people negotiate first and classify never; this article is the four-quadrant map that says which game you are actually playing.</li>
+  </ul>
+
+  <footer>
+    <p>5 August 2026 · Analysed: tender the warehouse-automation contract, or extend with the incumbent?</p>
+    <p class="disclaimer">This panel is modelled on each expert's published methodology. It is not a real consultation, and no endorsement by the named experts is implied.</p>
+  </footer>
+
+</div>
+</body>
+</html>

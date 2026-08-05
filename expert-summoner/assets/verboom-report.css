@@ -81,25 +81,32 @@ body {
   background: currentColor;
   opacity: 0.5;
 }
+/* Agreement reads as confidence (forest); clash reads as the tension
+   the reader still owns (terra, in its accessible deep step). */
+.seclabel--agree { color: var(--forest); }
+.seclabel--clash { color: var(--terra-deep); }
 
-/* The verdict: the report's single forest ground. A reader who stops
-   here has the answer. */
+/* The verdict: the report's most emphatic block, on a light ground.
+   It pops through scale plus scarcity, not darkness: the page's only
+   filled-and-textured frame, and the only terracotta fill (the action).
+   A reader who stops here has the answer. */
 .verdict {
   margin-top: 48px;
-  padding: 56px 40px;
-  background: var(--forest);
-  color: var(--on-forest);
+  padding: 56px 48px;
+  background-color: var(--n100);
+  background-image: repeating-linear-gradient(45deg, rgba(26, 26, 26, 0.06) 0 1px, transparent 1px 8px);
+  color: var(--n950);
   border: var(--border-ink);
   border-radius: var(--radius-card);
 }
-.verdict .seclabel { margin: 0 0 20px; color: var(--mint-dim); }
+.verdict .seclabel { margin: 0 0 20px; color: var(--n800); }
 .verdict h1 {
   margin: 0;
-  max-width: 26ch;
+  max-width: 24ch;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(28px, 4.5vw, 44px);
-  line-height: 1.15;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.12;
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
@@ -114,13 +121,13 @@ body {
   font-size: 15px;
   text-decoration: none;
 }
-.verdict .next-action:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+.verdict .next-action:focus-visible { outline: 2px solid var(--terra-deep); outline-offset: 3px; }
 .verdict .rationale {
   margin: 24px 0 0;
   max-width: 62ch;
   font-family: var(--serif);
   font-size: 19px;
-  color: var(--on-forest-muted);
+  color: var(--n800);
 }
 
 /* Agreements: high-confidence rows, hairline-divided, opened by ink. */

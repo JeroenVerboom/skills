@@ -148,17 +148,17 @@ Generate a visual HTML report and save it to the user's workspace, styled on the
 Report structure, in this exact order. The order is reader-first: the person who opens this report needs the decision, then the confidence behind it, then the tradeoff they still own, then the provenance, then what to read next. A reader who stops after the verdict has the answer.
 
 1. **Masthead** — label-caps "Expert panel" left, the analysed question right, framed by a 2px ink rule.
-2. **The verdict** — the report's single forest band: the recommendation as one large serif statement, the single next action as a terracotta block, and one short rationale line. This is the page's primary cluster; nothing above or beside it may compete.
-3. **Where the experts agree** — hairline-divided rows. Each row: the signal in bold sans, the reasoning in one serif line. These read as confidence, so keep them factual.
-4. **Where the experts clash** — each clash carries a name that states the tradeoff itself ("Speed versus scope", not "Simon disagrees with Hormozi"), then both sides in one line each, attributed. Never smooth a clash away; it is the decision the reader still owns.
+2. **The verdict** — the report's most emphatic block, on a light ground: the recommendation as one large serif statement, the single next action as the page's only terracotta fill, and one short rationale line. It pops through scale and scarcity, never through a dark background: it is the only filled-and-textured 2px-ink frame on the page. Nothing above or beside it may compete.
+3. **Where the experts agree** — section label in forest green (`seclabel--agree`): agreement reads as confidence. Hairline-divided rows; each row the signal in bold sans, the reasoning in one serif line. Keep them factual.
+4. **Where the experts clash** — section label in deep terracotta (`seclabel--clash`): the tension the reader still owns. Each clash carries a name that states the tradeoff itself ("Speed versus scope", not "Simon disagrees with Hormozi"), then both sides in one line each, attributed. Never smooth a clash away.
 5. **The panel** — one card per expert: serif name, one-line credential, the applied framework as a label-caps line, their diagnosis in one serif line. The full analysis goes inside a native `<details>` disclosure per card, so detail is available without competing with the verdict.
 6. **Who to study next** — 1-2 rows: name in sans bold, the specific book or framework in serif. The report's closing action.
 7. **Footer** — timestamp, what was analysed, and this standing line verbatim: "This panel is modelled on each expert's published methodology. It is not a real consultation, and no endorsement by the named experts is implied."
 
 Design rules the report must obey (all encoded in the CSS, do not override them):
-- Warm paper ground, warm neutrals only. Never a dark theme, never pure white, never cool grey.
-- One forest ground per report: the verdict band. Everything else stays paper.
-- Terracotta is scarce: the next action, the clash titles, link hovers. Well under 10% of the page.
+- Warm paper ground, warm neutrals only. Never a dark theme, never pure white, never cool grey. The verdict sits on a light container ground with the hairline texture, not on a dark band.
+- Forest and terracotta are meaning, not decoration: forest marks agreement (the agree label), terracotta marks tension and action (the clash labels, the next-action fill). Terracotta stays well under 10% of the page.
+- The hairline texture appears once, on the verdict frame only.
 - 2px ink borders and 40px radius on cards and the verdict band; 1px hairlines inside; no shadows, no gradients.
 - Two type families only: EB Garamond for statements and reading text (falls back to Georgia), Inter for labels and UI (falls back to system-ui). UPPERCASE only at 12px label-caps. Sentence case everywhere else. No emoji, no exclamation marks.
 - Hierarchy is rhetorical: a glance must reveal verdict, then confidence, then tradeoffs, then who said it, then what to read next, in that order. Remove any signal that competes without adding meaning.
