@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expert panel — [analysed question]</title>
+  <!-- In generated reports: inline the full contents of verboom-report.css
+       into this style block so the report is one self-contained file. -->
+  <link rel="stylesheet" href="verboom-report.css">
+</head>
+<body>
+<div class="shell">
+
+  <div class="masthead">
+    <span>Expert panel</span>
+    <span class="subject">[The analysed question, one line]</span>
+  </div>
+
+  <section class="verdict">
+    <p class="seclabel">The verdict</p>
+    <h1>[The single recommendation, as one plain-language statement.]</h1>
+    <a class="next-action" href="#panel">[The one next action]</a>
+    <p class="rationale">[One line on why this synthesis wins: which expert insights it combines.]</p>
+  </section>
+
+  <p class="seclabel">Where the experts agree</p>
+  <ul class="rows">
+    <li><strong>[The signal]</strong><span>[Why multiple frameworks land here, one line.]</span></li>
+    <li><strong>[The signal]</strong><span>[Why multiple frameworks land here, one line.]</span></li>
+  </ul>
+
+  <p class="seclabel">Where the experts clash</p>
+  <div class="clash">
+    <h3>[The tradeoff itself, e.g. "Speed versus scope"]</h3>
+    <div class="sides">
+      <p class="side"><b>[Expert A]</b>[Their position, one line.]</p>
+      <p class="side"><b>[Expert B]</b>[Their position, one line.]</p>
+    </div>
+  </div>
+
+  <p class="seclabel" id="panel">The panel</p>
+  <div class="panel">
+    <article class="expert">
+      <h3>[Expert name]</h3>
+      <p class="cred">[One-line credential]</p>
+      <p class="framework">[Framework applied]</p>
+      <p class="diagnosis">[Their diagnosis in one line.]</p>
+      <details>
+        <summary>Full analysis</summary>
+        <p>[Diagnosis, framework applied, recommendation, the one thing most people get wrong.]</p>
+      </details>
+    </article>
+    <!-- one card per expert -->
+  </div>
+
+  <p class="seclabel">Who to study next</p>
+  <ul class="study">
+    <li><b>[Expert name]</b> — [The specific book or framework, and why it fits this problem.]</li>
+  </ul>
+
+  <footer>
+    <p>[Timestamp] · Analysed: [the question]</p>
+    <p class="disclaimer">This panel is modelled on each expert's published methodology. It is not a real consultation, and no endorsement by the named experts is implied.</p>
+  </footer>
+
+</div>
+</body>
+</html>

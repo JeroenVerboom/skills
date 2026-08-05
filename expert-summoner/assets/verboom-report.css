@@ -1,0 +1,188 @@
+/* Verboom Editorial report styles for expert-summoner output.
+   Distilled from the Verboom design system tokens. Self-contained:
+   inline this file into a <style> block of every generated report.
+   Rules encoded here: warm neutrals only, one forest ground per page,
+   terracotta scarce, 2px ink borders + 40px editorial radius, no
+   shadows, no gradients, two type families, label-caps at 12px only. */
+
+:root {
+  --paper: #fffdf0;
+  --cream: #fcfaed;
+  --ink: #1a1a1a;
+  --terra: #c56c47;
+  --terra-deep: #783111;
+  --forest: #0b3d33;
+  --mint-dim: #a1d0c2;
+  --stone: #e9e6d6;
+  --n50: #f6f4e7;
+  --n100: #f0eee1;
+  --n600: #747878;
+  --n800: #444748;
+  --n950: #1b1c15;
+  --on-forest: #fffdf0;
+  --on-forest-muted: rgba(255, 253, 240, 0.7);
+  --serif: "EB Garamond", Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, sans-serif;
+  --border-ink: 2px solid var(--ink);
+  --hairline: 1px solid var(--stone);
+  --radius-card: 40px;
+  --radius-frame: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--n950);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+/* Masthead: what was analysed, framed by a 2px ink rule. */
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px 24px;
+  padding-bottom: 20px;
+  border-bottom: var(--border-ink);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.masthead .subject { color: var(--n600); }
+
+/* Section label: the eyebrow that opens every section. */
+.seclabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 64px 0 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--n800);
+}
+.seclabel::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* The verdict: the report's single forest ground. A reader who stops
+   here has the answer. */
+.verdict {
+  margin-top: 48px;
+  padding: 56px 40px;
+  background: var(--forest);
+  color: var(--on-forest);
+  border: var(--border-ink);
+  border-radius: var(--radius-card);
+}
+.verdict .seclabel { margin: 0 0 20px; color: var(--mint-dim); }
+.verdict h1 {
+  margin: 0;
+  max-width: 26ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 4.5vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.verdict .next-action {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 12px 24px;
+  background: var(--terra);
+  color: var(--paper);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+.verdict .next-action:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+.verdict .rationale {
+  margin: 24px 0 0;
+  max-width: 62ch;
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--on-forest-muted);
+}
+
+/* Agreements: high-confidence rows, hairline-divided, opened by ink. */
+.rows { margin: 0; padding: 0; list-style: none; border-top: var(--border-ink); }
+.rows li { padding: 16px 0; border-bottom: var(--hairline); }
+.rows strong { display: block; font-size: 15px; color: var(--n950); }
+.rows span { font-family: var(--serif); color: var(--n800); }
+
+/* Clashes: each named as the tradeoff it represents. */
+.clash { border-top: var(--border-ink); }
+.clash + .clash { border-top: var(--hairline); }
+.clash { padding: 20px 0; }
+.clash h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--terra-deep);
+}
+.clash .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.clash .side { font-family: var(--serif); color: var(--n800); }
+.clash .side b { display: block; font-family: var(--sans); font-size: 13px; color: var(--n950); }
+@media (max-width: 700px) { .clash .sides { grid-template-columns: 1fr; } }
+
+/* The panel: one card per expert, detail layered behind a disclosure. */
+.panel { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 760px) { .panel { grid-template-columns: 1fr; } }
+.expert {
+  border: var(--border-ink);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  background: var(--cream);
+}
+.expert h3 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 26px; }
+.expert .cred { margin: 4px 0 0; font-size: 13px; color: var(--n600); }
+.expert .framework {
+  margin: 14px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--n800);
+}
+.expert .diagnosis { margin: 10px 0 0; font-family: var(--serif); font-size: 18px; color: var(--n800); }
+.expert details { margin-top: 14px; border-top: var(--hairline); padding-top: 12px; }
+.expert summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--terra-deep); }
+.expert details p { font-family: var(--serif); color: var(--n800); }
+
+/* Who to study next: the closing action. */
+.study { border-top: var(--border-ink); margin: 0; padding: 0; list-style: none; }
+.study li { padding: 16px 0; border-bottom: var(--hairline); font-family: var(--serif); color: var(--n800); }
+.study b { font-family: var(--sans); font-size: 15px; color: var(--n950); }
+
+/* Footer: timestamp, subject, and the standing disclaimer. */
+footer {
+  margin-top: 72px;
+  padding-top: 20px;
+  border-top: var(--hairline);
+  font-size: 13px;
+  color: var(--n600);
+}
+footer .disclaimer { max-width: 70ch; }
+
+a { color: var(--forest); }
+a:hover { color: var(--terra); }
+:focus-visible { outline: 2px solid var(--terra-deep); outline-offset: 2px; }
