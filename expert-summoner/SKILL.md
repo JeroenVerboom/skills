@@ -17,6 +17,16 @@ This copy generates its reports in the Verboom Editorial design system, with a r
 
 ---
 
+## example output
+
+A rendered example of a finished report — the EU AI Act, for an AI customer-service assistant:
+
+**https://newsletter.verboomaiconsulting.nl/library/expert-summoner-eu-ai-act/**
+
+It shows the full shape the skill produces: one verdict up front, then where the experts agree, where they clash, the panel, and who to study next — in the Verboom Editorial design system. A second worked example (a procurement decision) is in [`examples/`](examples/expert-panel-procurement-example.html).
+
+---
+
 ## when to summon experts
 
 Good summoning targets:
