@@ -62,6 +62,36 @@ Not for: trivial or reversible decisions (check with think-reversibility first),
 
 **Quick pass** delivers: "and then what?" answered twice per option, plus a one-line recommendation, in a few sentences total.
 
+## Rendered report (full analysis only)
+
+When the user wants a shareable artifact, or a full analysis has earned one, render the result as a self-contained HTML report in the Verboom Editorial design system. Skip this for a quick pass: a few sentences do not need a document.
+
+The stylesheet and a structure skeleton ship with this skill in `assets/`:
+- `assets/verboom-report.css` — read it and inline the whole file into a `<style>` block, so the report is one standalone HTML file with no external requests.
+- `assets/report-template.html` — the reference structure; follow its classes and section order exactly.
+
+A rendered worked example is in [`examples/`](examples/second-order-eu-watermarking-example.html): the EU AI Act synthetic-content marking duty ("watermarks"), traced past its first order.
+
+**File:** `second-order-[slug]-[timestamp].html`, saved to the user's workspace, then opened.
+
+Section order, reader-first (the call first, then the chain that justifies it):
+1. **Masthead** — the Verboom wordmark (with the terracotta dot), then a serif hero: the eyebrow "Second-order analysis", the decision or move as `h1`, a one-line framing `dek`.
+2. **Report head + method note** — a `rep-head` bar, then the `methodnote`: second-order thinking traces past the immediate effect by asking "and then what", and the chains are directions of travel, not predictions.
+3. **The revised call** — the page's one forest ground. A mint `clabel` reading "The call: Keep / Modify / Reject", the revised decision as one italic serif line (the only italic heading), the single next action as the page's only terracotta fill, then one rationale line.
+4. **The consequence chain** — the signature `ol.chain`. One `li.rung` per order of consequence: the first rung calm (`.first`), the last the knock-on effect (`.deep`). Each rung names WHO responds in the `.who` label, then the effect as an `h4`, then one line of detail. Three orders is usually enough.
+5. **Feedback loops** — a `.loop` per loop, `reinforcing` (the danger tint) or balancing. Omit the section if there are none.
+6. **The 10/10/10 read** — three `.horizon` cards: 10 minutes, 10 months, 10 years. Show it only where a horizon changes the answer.
+7. **The scaling test** — the `.scaling` callout: what if everyone did this.
+8. **Traps** — optional `ul.traps`, the misreadings this chain invites, including any upside of success the downside-only reflex would miss.
+9. **Footer** — the method disclaimer verbatim (this is a structured trace of plausible effects, not a forecast), an optional `note` for regulated or illustrative topics, and a site footer with the timestamp and what was traced.
+
+Design rules the report must obey (all encoded in the CSS, do not override them):
+- Warm paper ground, warm neutrals only. Never pure white, never cool grey. The revised call is the ONE forest ground; no other block sits on forest, and there is no dark theme anywhere else.
+- Forest and terracotta are meaning, not decoration: forest marks the settled call and balancing forces; terracotta marks the one next action (its only fill) and, as a tint, the danger of a reinforcing loop. The terracotta fill stays well under 10% of the page.
+- 8-12px radii on the call ground and the cards; 2px ink rules frame the masthead and report head; 1px stone hairlines divide rows; no shadows, no gradients, no background textures.
+- Two type families only: EB Garamond for statements and reading text (falls back to Georgia), Inter for labels and UI (falls back to system-ui). No external font requests. UPPERCASE only at 12px label-caps. Sentence case everywhere else. No emoji, no exclamation marks, no em dashes: use a comma, a colon or a new sentence.
+- Keep every rung about people, not mechanics: the `.who` label forces the question the method turns on.
+
 ## Traps
 
 - **Stopping at the first order** because later effects feel speculative. They are uncertain, not optional; state them with confidence levels instead of skipping them.

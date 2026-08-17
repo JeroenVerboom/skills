@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Second-order analysis: EU AI content marking | Verboom AI Consulting</title>
+  <meta name="description" content="The EU rule that AI-generated content must be marked, traced past the first-order effect: the consequence chain, feedback loops, the 10/10/10 read, the scaling test, and the revised call.">
+  <style>
+/* Verboom Editorial, think-second-order report styles.
+   Self-contained: inline this file into a <style> block of every
+   generated report so the output is one standalone HTML file with no
+   external requests. Shares the Verboom brand grammar with the
+   expert-summoner report; the components differ because the output
+   differs (consequence chains, feedback loops, 10/10/10, scaling test).
+
+   Grammar of the page:
+   - Warm paper ground, warm neutrals only. Never dark theme, never pure
+     white, never cool grey.
+   - The revised call is the page's ONE forest ground, used exactly once.
+     No other block may be forest.
+   - Forest = the settled call and balancing forces. Terracotta = the one
+     next action (the only terracotta FILL) and, as a tint, the danger of
+     a reinforcing loop. Terracotta fill stays well under 10% of the page.
+   - Two type families: EB Garamond (statements, reading) falling back to
+     Georgia; Inter (labels, UI) falling back to system-ui. No external
+     font requests: rely on the fallbacks.
+   - UPPERCASE only at 12px label-caps. Sentence case everywhere else.
+   - No emoji, no exclamation marks, no em dashes: use a comma, a colon,
+     or a new sentence.
+   - 2px ink rules frame the masthead and report head; 1px stone hairlines
+     divide rows; 8-12px radii on grounds and cards; no shadows, no
+     gradients, no background textures. */
+
+:root {
+  --paper: #fffdf0;
+  --cream: #fcfaed;
+  --ink: #1b1c15;
+  --variant: #444748;
+  --muted: #5f6360;
+  --stone: #e9e6d6;
+  --forest: #0b3d33;
+  --mint: #bcedde;
+  --terra: #c56c47;
+  --terra-deep: #783111;
+  --clash: #b23a2e;
+  --on-forest: #fffdf0;
+  --on-forest-muted: rgba(255, 253, 240, 0.8);
+  --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --measure: 66ch;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+a { color: var(--forest); text-underline-offset: 2px; }
+a:hover { color: var(--terra); }
+:focus-visible { outline: 2px solid var(--terra-deep); outline-offset: 2px; }
+
+/* ---- Masthead ---- */
+.mast { border-bottom: 2px solid var(--ink); }
+.mast .wrap {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 16px; padding: 18px 24px 14px;
+}
+.brand {
+  font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest);
+}
+.brand .dot { color: var(--terra); }
+.crumb {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ---- Hero ---- */
+.eyebrow {
+  font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest);
+  margin: 56px 0 14px;
+}
+h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(32px, 5vw, 50px); line-height: 1.06;
+  letter-spacing: -0.02em; margin: 0 0 18px; max-width: 22ch;
+}
+.dek {
+  font-family: var(--serif); font-size: 21px; line-height: 1.5;
+  color: var(--variant); max-width: 56ch; margin: 0;
+}
+
+/* ---- Report head + method note ---- */
+.rep-head {
+  display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline;
+  justify-content: space-between; margin: 34px 0 0; padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.rep-head .l {
+  font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+}
+.rep-head .r {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  max-width: 50ch; text-align: right;
+}
+.methodnote {
+  margin: 24px 0 0; font-family: var(--sans); font-size: 12.5px;
+  line-height: 1.5; color: var(--muted); max-width: 68ch;
+}
+.methodnote b { color: var(--forest); }
+
+/* ---- Section headings ---- */
+.rh {
+  display: flex; align-items: center; gap: 10px; font-family: var(--serif);
+  font-weight: 400; font-size: 26px; line-height: 1.2; margin: 46px 0 14px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--forest);
+}
+.rh.warn { border-bottom-color: var(--clash); }
+.rh .tag {
+  font-family: var(--sans); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px;
+  border-radius: 3px;
+}
+.rh .tag.ok { color: var(--forest); background: #e6f1ea; }
+.rh .tag.no { color: var(--clash); background: #fbe7e3; }
+
+/* ---- The revised call: the page's ONE forest ground ---- */
+.call {
+  background: var(--forest); color: var(--on-forest);
+  border-radius: 12px; padding: 32px 30px; margin: 22px 0 0;
+}
+.call .clabel {
+  display: inline-block; font-family: var(--sans); font-size: 11px;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--mint); border: 1px solid rgba(188, 237, 222, 0.45);
+  border-radius: 3px; padding: 4px 9px; margin: 0 0 16px;
+}
+.call .ctext {
+  font-family: var(--serif); font-size: clamp(26px, 4vw, 32px);
+  font-style: italic; line-height: 1.22; color: var(--on-forest);
+  margin: 0; max-width: 32ch;
+}
+.call .action {
+  display: inline-block; margin: 22px 0 4px; background: var(--terra);
+  color: var(--on-forest); font-family: var(--sans); font-size: 13px;
+  font-weight: 700; letter-spacing: 0.03em; padding: 11px 18px;
+  border-radius: 5px; text-decoration: none;
+}
+.call .csub {
+  font-family: var(--sans); font-size: 15px; line-height: 1.6;
+  color: var(--on-forest-muted); margin: 18px 0 0; max-width: 62ch;
+}
+
+/* ---- The consequence chain: the signature "and then what?" ladder.
+        Each rung is one order of consequence; the connective spine runs
+        down the left, and the first-order rung reads as the calm start
+        before the ripples. ---- */
+.chain { margin: 6px 0 0; padding: 0; list-style: none; }
+.rung {
+  position: relative; padding: 0 0 26px 74px; margin: 0;
+}
+.rung::before { /* the spine */
+  content: ""; position: absolute; left: 25px; top: 6px; bottom: -6px;
+  width: 2px; background: var(--stone);
+}
+.rung:last-child { padding-bottom: 0; }
+.rung:last-child::before { bottom: auto; height: 26px; }
+.rung .badge {
+  position: absolute; left: 0; top: 0; width: 52px; height: 52px;
+  border-radius: 50%; border: 2px solid var(--forest); background: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.04em; color: var(--forest); text-align: center;
+  line-height: 1.05;
+}
+.rung.first .badge { border-color: var(--muted); color: var(--muted); }
+.rung.deep .badge { border-color: var(--terra-deep); color: var(--terra-deep); }
+.rung h4 {
+  font-family: var(--serif); font-weight: 400; font-size: 22px;
+  line-height: 1.22; color: var(--ink); margin: 6px 0 6px;
+}
+.rung .who {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--forest);
+  margin: 0 0 6px;
+}
+.rung p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--variant); max-width: 60ch; }
+
+/* ---- Feedback loops: reinforcing loops carry the danger tint ---- */
+.loop {
+  border: 1px solid var(--stone); border-left: 3px solid var(--forest);
+  border-radius: 10px; background: var(--cream); padding: 18px 20px;
+  margin: 0 0 14px;
+}
+.loop.reinforcing { border-left-color: var(--clash); }
+.loop .ltag {
+  font-family: var(--sans); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px;
+  border-radius: 3px; color: var(--forest); background: #e6f1ea;
+}
+.loop.reinforcing .ltag { color: var(--clash); background: #fbe7e3; }
+.loop h4 {
+  font-family: var(--serif); font-weight: 400; font-size: 20px;
+  line-height: 1.25; color: var(--ink); margin: 12px 0 6px;
+}
+.loop p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--variant); max-width: 62ch; }
+
+/* ---- 10/10/10 read: three time horizons ---- */
+.tenten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 4px 0 0; }
+.horizon {
+  border: 1px solid var(--stone); border-radius: 10px; background: var(--cream);
+  padding: 20px 18px;
+}
+.horizon .h {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--forest);
+  margin: 0 0 10px;
+}
+.horizon .val { font-family: var(--serif); font-size: 20px; line-height: 1.25; color: var(--ink); margin: 0 0 8px; }
+.horizon p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--variant); }
+
+/* ---- The scaling test: one callout ---- */
+.scaling {
+  border: 2px solid var(--ink); border-radius: 12px; padding: 24px 26px;
+  margin: 4px 0 0; background: var(--paper);
+}
+.scaling .q {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  margin: 0 0 10px;
+}
+.scaling p { font-family: var(--serif); font-size: 19px; line-height: 1.5; color: var(--ink); margin: 0; max-width: 64ch; }
+
+/* ---- Traps + closing notes ---- */
+.traps { margin: 6px 0 0; padding: 0; list-style: none; border-top: 2px solid var(--ink); }
+.traps li { padding: 14px 0; border-bottom: 1px solid var(--stone); font-size: 15.5px; line-height: 1.55; color: var(--variant); }
+.traps li:last-child { border-bottom: 0; }
+.traps b { color: var(--ink); }
+
+.rep-foot {
+  margin: 30px 0 0; padding-top: 16px; border-top: 1px solid var(--stone);
+  font-size: 12.5px; line-height: 1.55; color: var(--muted);
+}
+.note {
+  margin: 24px 0 0; padding: 18px 20px; background: var(--cream);
+  border: 1px solid var(--stone); border-radius: 10px; font-size: 13.5px;
+  line-height: 1.55; color: var(--muted);
+}
+.note b { color: var(--ink); }
+
+footer { margin-top: 52px; border-top: 1px solid var(--stone); }
+footer .wrap { padding: 28px 24px 60px; }
+footer p { font-family: var(--sans); font-size: 14px; color: var(--muted); margin: 0 0 6px; }
+
+@media (max-width: 640px) {
+  .tenten { grid-template-columns: 1fr; }
+  .rep-head .r { text-align: left; }
+  .rung { padding-left: 64px; }
+}
+  </style>
+</head>
+<body>
+  <header class="mast"><div class="wrap">
+    <span class="brand">Verboom AI Consulting<span class="dot">.</span></span>
+    <span class="crumb">Second-order thinking</span>
+  </div></header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- Hero: the decision or move being traced -->
+      <p class="eyebrow">Second-order analysis</p>
+      <h1>The EU now requires AI-generated content to be watermarked. And then what?</h1>
+      <p class="dek">The obvious first-order effect is that audiences can finally tell AI content from human content. This traces the move past that first step, to see what providers, platforms, bad actors and audiences actually do next.</p>
+
+      <!-- Report head + method note -->
+      <div class="rep-head">
+        <span class="l">And then what</span>
+        <span class="r">EU AI Act, Article 50, content marking, applicable 2 August 2026</span>
+      </div>
+      <p class="methodnote"><b>Second-order thinking</b> traces a decision past its immediate effect by asking "and then what" repeatedly, following how other people respond. These consequences are uncertain, not optional: read them as directions of travel, not predictions.</p>
+
+      <!-- THE REVISED CALL: the page's one forest ground.
+           clabel is one of: Keep, Modify, Reject. -->
+      <div class="call">
+        <span class="clabel">The call: Modify</span>
+        <p class="ctext">Comply as accountability, not as a fix for deception.</p>
+        <a class="action" href="#chain">Split your Article 50 work into the marking you can enforce and the marking you cannot, before 2 August 2026</a>
+        <p class="csub">The naive plan was "just watermark everything and the deception problem is solved". The chain breaks that plan in two. Invisible watermarks on text (a hidden statistical signal in the wording) do not survive paraphrasing or a copy-paste, and provenance data (a signed record of where a file came from) is stripped the moment a file is uploaded to a social platform. So invest in the parts you can enforce, the visible "this is AI" disclosure and provenance for high-stakes content, and stop expecting an invisible mark to stop misuse.</p>
+      </div>
+
+      <!-- THE CONSEQUENCE CHAIN: the signature ladder. -->
+      <h3 class="rh" id="chain"><span>The consequence chain</span></h3>
+      <ol class="chain">
+        <li class="rung first">
+          <span class="badge">1st<br>order</span>
+          <p class="who">Providers and deployers</p>
+          <h4>Everything gets marked and labelled</h4>
+          <p>Providers add machine-readable marks to their output, signed provenance data and invisible watermarks. Deployers add a visible "this is AI" line. On its face, the labelling now lets any reader separate AI content from human content.</p>
+        </li>
+        <li class="rung">
+          <span class="badge">2nd<br>order</span>
+          <p class="who">Platforms and bad actors</p>
+          <h4>The label falls off exactly where it is needed</h4>
+          <p>Every major platform strips provenance data on upload, and a screenshot erases it, so the record rarely survives. The invisible watermark is the only mark that lasts. Anyone set on deceiving paraphrases or lightly edits the AI text, which defeats that watermark. Honest content stays labelled, deceptive content routes around the label.</p>
+        </li>
+        <li class="rung deep">
+          <span class="badge">3rd<br>order</span>
+          <p class="who">Audiences and the market</p>
+          <h4>The signal inverts and the label loses its meaning</h4>
+          <p>A detection race opens, and "unmarked" starts to read as "human and trustworthy", so the reward for removing marks grows. Compliant organisations carry the labels, the actors the rule meant to catch evade them, and once people learn a mark is easy to remove, trust in the label itself erodes.</p>
+        </li>
+      </ol>
+
+      <!-- FEEDBACK LOOPS -->
+      <h3 class="rh warn"><span>Feedback loops</span><span class="tag no">Watch</span></h3>
+      <div class="loop reinforcing">
+        <span class="ltag">Reinforcing</span>
+        <h4>The marking arms race</h4>
+        <p>Every improvement in marking invites a matching improvement in stripping or paraphrasing. Better detectors are used to train better evaders, and the outputs of each side become the training data for the other. The race funds itself and never settles.</p>
+      </div>
+      <div class="loop">
+        <span class="ltag">Balancing</span>
+        <h4>Provenance where it counts</h4>
+        <p>For high-stakes institutional content, official statements, journalism and legal evidence, verifiable provenance plus a named human who is accountable holds. The receiving side has a reason to check the signal and to keep it. This is the part of the duty that durably works.</p>
+      </div>
+
+      <!-- THE 10/10/10 READ -->
+      <h3 class="rh"><span>The 10/10/10 read</span></h3>
+      <div class="tenten">
+        <div class="horizon"><p class="h">In 10 minutes</p><p class="val">Relief</p><p>"We added a disclosure line and picked a compliant vendor, so we are covered." The box is ticked and the worry lifts.</p></div>
+        <div class="horizon"><p class="h">In 10 months</p><p class="val">The label sits on the wrong content</p><p>The mark is on all your compliant output and absent on the content that actually matters. An internal argument opens on whether text watermarking is worth its quality and effort cost.</p></div>
+        <div class="horizon"><p class="h">In 10 years</p><p class="val">Provenance is normal, universal watermarking is not</p><p>Provenance by default is standard for institutional content and mark stripping is a routine known fact. The durable value turns out to be human disclosure plus provenance for high-stakes content, not invisible text watermarking everywhere.</p></div>
+      </div>
+
+      <!-- THE SCALING TEST -->
+      <h3 class="rh"><span>The scaling test</span></h3>
+      <div class="scaling">
+        <p class="q">What if everyone marks</p>
+        <p>If all legitimate content is marked and the marks are removable, the absence of a mark becomes the thing a bad actor wants. Marking then identifies the honest actors more than it catches the dishonest ones. It is still worth doing for accountability and consumer clarity, but not as a control against disinformation.</p>
+      </div>
+
+      <!-- TRAPS -->
+      <h3 class="rh"><span>Traps in this chain</span></h3>
+      <ul class="traps">
+        <li><b>Mistaking the machine mark for the binding duty.</b> The enforceable, novel obligation is the human-perceivable disclosure, the visible "this is AI" line, not the fragile invisible watermark. Chasing the watermark spends effort where the law does not actually bind you.</li>
+        <li><b>Only tracing the downside.</b> Success has an upside worth naming: honest provenance becomes a real consumer-trust signal, and a brand that adopts it well can use it as a genuine differentiator. The failure mode is universal anti-deception, not the marking itself.</li>
+        <li><b>Chaining mechanics, not people.</b> The chain matters because platforms strip, bad actors paraphrase and audiences re-read the signal. If you trace only the file formats and forget who responds at each step, you miss where the whole thing turns.</li>
+      </ul>
+
+      <!-- Method disclaimer + context note -->
+      <p class="rep-foot">This is a second-order analysis: a structured trace of plausible downstream effects, not a forecast. The chains are argued, not measured, and should be pressure-tested against your own situation.</p>
+      <div class="note"><b>Illustrative example.</b> This report is a worked example of the second-order thinking method applied to a real regulatory move. It states the duties and the well-documented limits of the marking technologies, but it does not name specific vendor decisions or fix regulatory dates beyond the 2 August 2026 application of Article 50. Treat it as a way of reasoning, not as legal advice.</div>
+
+    </div>
+  </main>
+
+  <footer><div class="wrap">
+    <p>Verboom AI Consulting<span style="color:#c56c47">.</span> Practical AI. Building blocks, ready to use.</p>
+    <p>2026-08-17 · Traced: EU AI Act, Article 50, content marking, applicable 2 August 2026</p>
+  </div></footer>
+</body>
+</html>
