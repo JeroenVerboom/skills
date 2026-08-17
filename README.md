@@ -19,6 +19,7 @@ Works with any agent runtime that reads `SKILL.md` conventions (Claude Code, and
 | Skill | What it does |
 |---|---|
 | [expert-summoner](expert-summoner/) | Works out whose judgement your problem actually needs, reasons through each expert's published methodology in parallel, and returns one verdict instead of five opinions. Reports are styled on the Verboom Editorial design system, verdict first. |
+| [think-second-order](think-second-order/) | Traces a decision's consequences past the obvious first-order effect by asking "and then what?" repeatedly — mapping how customers, competitors, and employees respond, spotting feedback loops, and time-shifting with 10/10/10. For pricing, hiring, incentive, and policy moves. |
 
 ## Notes
 
