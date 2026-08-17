@@ -1,4 +1,4 @@
-/* Verboom Editorial — think-second-order report styles.
+/* Verboom Editorial, think-second-order report styles.
    Self-contained: inline this file into a <style> block of every
    generated report so the output is one standalone HTML file with no
    external requests. Shares the Verboom brand grammar with the
@@ -189,6 +189,43 @@ h1 {
   margin: 0 0 6px;
 }
 .rung p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--variant); max-width: 60ch; }
+
+/* ---- Multiple chains: tab navigation. Use ONLY when the move has more
+        than one genuine second-order thread; a single logical chain skips
+        the tabs entirely. Each panel carries its own chain, its own loops
+        and its own 10/10/10, so switching tab swaps everything below it.
+        Falls back to showing all panels in sequence with no script. ---- */
+.tabs {
+  display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 0;
+  border-bottom: 1px solid var(--stone);
+}
+.tab {
+  appearance: none; background: transparent; border: 0; cursor: pointer;
+  font-family: var(--sans); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.01em; color: var(--muted); padding: 10px 14px;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--forest); border-bottom-color: var(--forest); }
+.tab .n {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--terra-deep); margin-right: 8px;
+}
+.tabpanel { padding: 22px 0 0; }
+.tabpanel[hidden] { display: none; }
+/* Smaller in-panel section label, so the panel reads as one chain and
+   does not compete with the page-level serif headings. */
+.subrh {
+  display: flex; align-items: center; gap: 10px; margin: 30px 0 12px;
+  font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest);
+}
+.subrh::after { content: ""; flex: 1; height: 1px; background: var(--stone); }
+.subrh.warn { color: var(--clash); }
+.chainlede {
+  font-family: var(--serif); font-size: 18px; line-height: 1.45;
+  color: var(--variant); margin: 0 0 8px; max-width: 62ch;
+}
 
 /* ---- Feedback loops: reinforcing loops carry the danger tint ---- */
 .loop {

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Second-order analysis: EU AI content marking | Verboom AI Consulting</title>
-  <meta name="description" content="The EU rule that AI-generated content must be marked, traced past the first-order effect: the consequence chain, feedback loops, the 10/10/10 read, the scaling test, and the revised call.">
+  <meta name="description" content="The EU AI Act now requires AI-generated content, in images and text, to be marked. Traced past its first order along three threads: the detection race, the market it reshapes, and the trust it can build.">
   <style>
 /* Verboom Editorial, think-second-order report styles.
    Self-contained: inline this file into a <style> block of every
@@ -198,6 +198,43 @@ h1 {
 }
 .rung p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--variant); max-width: 60ch; }
 
+/* ---- Multiple chains: tab navigation. Use ONLY when the move has more
+        than one genuine second-order thread; a single logical chain skips
+        the tabs entirely. Each panel carries its own chain, its own loops
+        and its own 10/10/10, so switching tab swaps everything below it.
+        Falls back to showing all panels in sequence with no script. ---- */
+.tabs {
+  display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 0;
+  border-bottom: 1px solid var(--stone);
+}
+.tab {
+  appearance: none; background: transparent; border: 0; cursor: pointer;
+  font-family: var(--sans); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.01em; color: var(--muted); padding: 10px 14px;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--forest); border-bottom-color: var(--forest); }
+.tab .n {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--terra-deep); margin-right: 8px;
+}
+.tabpanel { padding: 22px 0 0; }
+.tabpanel[hidden] { display: none; }
+/* Smaller in-panel section label, so the panel reads as one chain and
+   does not compete with the page-level serif headings. */
+.subrh {
+  display: flex; align-items: center; gap: 10px; margin: 30px 0 12px;
+  font-family: var(--sans); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest);
+}
+.subrh::after { content: ""; flex: 1; height: 1px; background: var(--stone); }
+.subrh.warn { color: var(--clash); }
+.chainlede {
+  font-family: var(--serif); font-size: 18px; line-height: 1.45;
+  color: var(--variant); margin: 0 0 8px; max-width: 62ch;
+}
+
 /* ---- Feedback loops: reinforcing loops carry the danger tint ---- */
 .loop {
   border: 1px solid var(--stone); border-left: 3px solid var(--forest);
@@ -269,6 +306,7 @@ footer p { font-family: var(--sans); font-size: 14px; color: var(--muted); margi
   .rep-head .r { text-align: left; }
   .rung { padding-left: 64px; }
 }
+
   </style>
 </head>
 <body>
@@ -280,87 +318,161 @@ footer p { font-family: var(--sans); font-size: 14px; color: var(--muted); margi
   <main>
     <div class="wrap">
 
-      <!-- Hero: the decision or move being traced -->
       <p class="eyebrow">Second-order analysis</p>
       <h1>The EU now requires AI-generated content to be watermarked. And then what?</h1>
-      <p class="dek">The obvious first-order effect is that audiences can finally tell AI content from human content. This traces the move past that first step, to see what providers, platforms, bad actors and audiences actually do next.</p>
+      <p class="dek">The obvious first-order effect is that audiences can finally tell AI content from human content. This traces the move past that first step, along three threads: the detection race, the market it reshapes, and the trust it can build.</p>
 
-      <!-- Report head + method note -->
       <div class="rep-head">
         <span class="l">And then what</span>
         <span class="r">EU AI Act, Article 50, content marking, applicable 2 August 2026</span>
       </div>
-      <p class="methodnote"><b>Second-order thinking</b> traces a decision past its immediate effect by asking "and then what" repeatedly, following how other people respond. These consequences are uncertain, not optional: read them as directions of travel, not predictions.</p>
+      <p class="methodnote"><b>Second-order thinking</b> traces a decision past its immediate effect by asking "and then what" repeatedly, following how other people respond. This move has more than one second-order thread, so we trace three: use the tabs below to follow each. The consequences are directions of travel, not predictions.</p>
 
-      <!-- THE REVISED CALL: the page's one forest ground.
-           clabel is one of: Keep, Modify, Reject. -->
       <div class="call">
         <span class="clabel">The call: Modify</span>
         <p class="ctext">Comply as accountability, not as a fix for deception.</p>
-        <a class="action" href="#chain">Split your Article 50 work into the marking you can enforce and the marking you cannot, before 2 August 2026</a>
-        <p class="csub">The naive plan was "just watermark everything and the deception problem is solved". The chain breaks that plan in two. Invisible watermarks on text (a hidden statistical signal in the wording) do not survive paraphrasing or a copy-paste, and provenance data (a signed record of where a file came from) is stripped the moment a file is uploaded to a social platform. So invest in the parts you can enforce, the visible "this is AI" disclosure and provenance for high-stakes content, and stop expecting an invisible mark to stop misuse.</p>
+        <a class="action" href="#chains">Split your Article 50 work into the marking you can enforce and the marking you cannot, before 2 August 2026</a>
+        <p class="csub">All three threads point the same way. The enforceable value is the visible "this is AI" disclosure, verifiable provenance on high-stakes content, and a compliant vendor. The wasted effort is treating invisible text watermarks as a way to stop misuse, because they come off under paraphrase. The durable upside, provenance as a trust signal, is worth building for on its own terms.</p>
       </div>
 
-      <!-- THE CONSEQUENCE CHAIN: the signature ladder. -->
-      <h3 class="rh" id="chain"><span>The consequence chain</span></h3>
-      <ol class="chain">
-        <li class="rung first">
-          <span class="badge">1st<br>order</span>
-          <p class="who">Providers and deployers</p>
-          <h4>Everything gets marked and labelled</h4>
-          <p>Providers add machine-readable marks to their output, signed provenance data and invisible watermarks. Deployers add a visible "this is AI" line. On its face, the labelling now lets any reader separate AI content from human content.</p>
-        </li>
-        <li class="rung">
-          <span class="badge">2nd<br>order</span>
-          <p class="who">Platforms and bad actors</p>
-          <h4>The label falls off exactly where it is needed</h4>
-          <p>Every major platform strips provenance data on upload, and a screenshot erases it, so the record rarely survives. The invisible watermark is the only mark that lasts. Anyone set on deceiving paraphrases or lightly edits the AI text, which defeats that watermark. Honest content stays labelled, deceptive content routes around the label.</p>
-        </li>
-        <li class="rung deep">
-          <span class="badge">3rd<br>order</span>
-          <p class="who">Audiences and the market</p>
-          <h4>The signal inverts and the label loses its meaning</h4>
-          <p>A detection race opens, and "unmarked" starts to read as "human and trustworthy", so the reward for removing marks grows. Compliant organisations carry the labels, the actors the rule meant to catch evade them, and once people learn a mark is easy to remove, trust in the label itself erodes.</p>
-        </li>
-      </ol>
+      <h3 class="rh" id="chains"><span>The consequence chains</span></h3>
+      <p class="chainlede">One move, three second-order threads. Each follows a different set of people, and each carries its own feedback loop and its own 10/10/10 read.</p>
 
-      <!-- FEEDBACK LOOPS -->
-      <h3 class="rh warn"><span>Feedback loops</span><span class="tag no">Watch</span></h3>
-      <div class="loop reinforcing">
-        <span class="ltag">Reinforcing</span>
-        <h4>The marking arms race</h4>
-        <p>Every improvement in marking invites a matching improvement in stripping or paraphrasing. Better detectors are used to train better evaders, and the outputs of each side become the training data for the other. The race funds itself and never settles.</p>
-      </div>
-      <div class="loop">
-        <span class="ltag">Balancing</span>
-        <h4>Provenance where it counts</h4>
-        <p>For high-stakes institutional content, official statements, journalism and legal evidence, verifiable provenance plus a named human who is accountable holds. The receiving side has a reason to check the signal and to keep it. This is the part of the duty that durably works.</p>
+      <div class="tabs" role="tablist" aria-label="Consequence chains">
+        <button class="tab" role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true"><span class="n">A</span>The detection arms race</button>
+        <button class="tab" role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" tabindex="-1"><span class="n">B</span>The compliance-cost cascade</button>
+        <button class="tab" role="tab" id="tab-c" aria-controls="panel-c" aria-selected="false" tabindex="-1"><span class="n">C</span>The trust dividend</button>
       </div>
 
-      <!-- THE 10/10/10 READ -->
-      <h3 class="rh"><span>The 10/10/10 read</span></h3>
-      <div class="tenten">
-        <div class="horizon"><p class="h">In 10 minutes</p><p class="val">Relief</p><p>"We added a disclosure line and picked a compliant vendor, so we are covered." The box is ticked and the worry lifts.</p></div>
-        <div class="horizon"><p class="h">In 10 months</p><p class="val">The label sits on the wrong content</p><p>The mark is on all your compliant output and absent on the content that actually matters. An internal argument opens on whether text watermarking is worth its quality and effort cost.</p></div>
-        <div class="horizon"><p class="h">In 10 years</p><p class="val">Provenance is normal, universal watermarking is not</p><p>Provenance by default is standard for institutional content and mark stripping is a routine known fact. The durable value turns out to be human disclosure plus provenance for high-stakes content, not invisible text watermarking everywhere.</p></div>
+      <!-- CHAIN A -->
+      <div class="tabpanel" role="tabpanel" id="panel-a" aria-labelledby="tab-a">
+        <p class="chainlede">Follow what happens to the mark itself, as providers, platforms and bad actors each respond.</p>
+        <ol class="chain">
+          <li class="rung first">
+            <span class="badge">1st<br>order</span>
+            <p class="who">Providers and deployers</p>
+            <h4>Everything gets marked and labelled</h4>
+            <p>Providers add machine-readable marks and invisible watermarks to their output; deployers add a visible "this is AI" line. On its face, any reader can now separate AI content from human content.</p>
+          </li>
+          <li class="rung">
+            <span class="badge">2nd<br>order</span>
+            <p class="who">Platforms and bad actors</p>
+            <h4>The label falls off exactly where it is needed</h4>
+            <p>Every major platform strips provenance data (a signed record of where a file came from) on upload, and a screenshot erases it. Anyone set on deceiving paraphrases the AI text, which defeats the watermark. Honest content stays labelled; deceptive content routes around the label.</p>
+          </li>
+          <li class="rung deep">
+            <span class="badge">3rd<br>order</span>
+            <p class="who">Audiences and the market</p>
+            <h4>The signal inverts and the label loses its meaning</h4>
+            <p>A detection race opens, and "unmarked" starts to read as "human and trustworthy", so the reward for removing marks grows. Compliant organisations carry the labels; the actors the rule meant to catch evade them.</p>
+          </li>
+        </ol>
+        <p class="subrh warn">Feedback loop</p>
+        <div class="loop reinforcing">
+          <span class="ltag">Reinforcing</span>
+          <h4>The marking arms race</h4>
+          <p>Every improvement in marking invites a matching improvement in stripping or paraphrasing. Better detectors are used to train better evaders, and the outputs of each side become the training data for the other. The race never settles.</p>
+        </div>
+        <p class="subrh">The 10/10/10 read</p>
+        <div class="tenten">
+          <div class="horizon"><p class="h">In 10 minutes</p><p class="val">Relief</p><p>"We added a disclosure line and picked a compliant vendor, so we are covered." The box is ticked and the worry lifts.</p></div>
+          <div class="horizon"><p class="h">In 10 months</p><p class="val">The label sits on the wrong content</p><p>It is on all your compliant output and absent on the content that actually matters, so the argument about text watermarking reopens.</p></div>
+          <div class="horizon"><p class="h">In 10 years</p><p class="val">Stripping is a known routine</p><p>The mark is treated as removable, so nobody relies on its absence to prove anything. The durable value was the visible disclosure.</p></div>
+        </div>
       </div>
 
-      <!-- THE SCALING TEST -->
+      <!-- CHAIN B -->
+      <div class="tabpanel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>
+        <p class="chainlede">Follow the money and the market structure, as compliance teams, vendors and smaller builders respond.</p>
+        <ol class="chain">
+          <li class="rung first">
+            <span class="badge">1st<br>order</span>
+            <p class="who">Compliance teams</p>
+            <h4>Every team that touches generative AI takes on new work</h4>
+            <p>Before 2 August 2026, each team inventories where it makes synthetic content, adds the disclosures, and documents its human editorial review. A real but largely one-off cost.</p>
+          </li>
+          <li class="rung">
+            <span class="badge">2nd<br>order</span>
+            <p class="who">AI vendors and buyers</p>
+            <h4>Marking gets bundled and priced in</h4>
+            <p>Vendors build compliant marking into their platforms and charge for it. Buyers prefer the few large providers that can prove they follow the voluntary Code of Practice (the safe-harbour guidance), because that is the low-risk path.</p>
+          </li>
+          <li class="rung deep">
+            <span class="badge">3rd<br>order</span>
+            <p class="who">Smaller builders and the market</p>
+            <h4>Compliance becomes a moat</h4>
+            <p>Robust marking is easy for large providers and hard for small teams and open-source tools. The cost of proving compliance squeezes smaller EU builders, and the market quietly concentrates around a handful of vendors.</p>
+          </li>
+        </ol>
+        <p class="subrh warn">Feedback loops</p>
+        <div class="loop reinforcing">
+          <span class="ltag">Reinforcing</span>
+          <h4>Compliance favours scale</h4>
+          <p>The more marking standardises around big vendors, the more compliance rewards buying from them, which sends more buyers their way and standardises the market further.</p>
+        </div>
+        <div class="loop">
+          <span class="ltag">Balancing</span>
+          <h4>Open provenance lowers the floor</h4>
+          <p>Content Credentials are an open standard, not owned by one vendor, so over time cheaper and open tools can emit the same marks, which eases the squeeze on smaller builders.</p>
+        </div>
+        <p class="subrh">The 10/10/10 read</p>
+        <div class="tenten">
+          <div class="horizon"><p class="h">In 10 minutes</p><p class="val">Buy the problem away</p><p>"We will just pick a compliant vendor and move on." The cost reads as a one-off purchase.</p></div>
+          <div class="horizon"><p class="h">In 10 months</p><p class="val">Compliance is a procurement line</p><p>It has become a budget item and a vendor-selection criterion, and small suppliers start to fall off the shortlist.</p></div>
+          <div class="horizon"><p class="h">In 10 years</p><p class="val">Marking is a commodity feature</p><p>Bundled everywhere and cheap, but the market concentrated during the transition, and that concentration is hard to reverse.</p></div>
+        </div>
+      </div>
+
+      <!-- CHAIN C -->
+      <div class="tabpanel" role="tabpanel" id="panel-c" aria-labelledby="tab-c" hidden>
+        <p class="chainlede">Follow the upside, as brands, audiences and the wider market respond to content that can prove its origin.</p>
+        <ol class="chain">
+          <li class="rung first">
+            <span class="badge">1st<br>order</span>
+            <p class="who">Brands and publishers</p>
+            <h4>Labels and provenance appear on legitimate content</h4>
+            <p>Every serious publisher and brand starts signing and labelling what it makes, first to comply, then as routine practice.</p>
+          </li>
+          <li class="rung">
+            <span class="badge">2nd<br>order</span>
+            <p class="who">Audiences</p>
+            <h4>People stop noticing the label, but start expecting the proof</h4>
+            <p>Everyday labels fade into the background. Yet for high-stakes content, an official notice, a legal document, a news photo, audiences begin to expect verifiable provenance and treat its absence as a reason to doubt.</p>
+          </li>
+          <li class="rung deep">
+            <span class="badge">3rd<br>order</span>
+            <p class="who">The market</p>
+            <h4>Provenance becomes a premium trust signal</h4>
+            <p>"Signed by a named organisation" turns into a competitive edge for journalism, legal work and official communication. Brands that adopt provenance well stand out, and it shifts from a chore to a differentiator.</p>
+          </li>
+        </ol>
+        <p class="subrh">Feedback loop</p>
+        <div class="loop">
+          <span class="ltag">Balancing</span>
+          <h4>Provenance where it counts</h4>
+          <p>For high-stakes institutional content, verifiable provenance plus a named accountable human holds, because the receiving side has a reason to check the signal and keep it. This is the part of the duty that durably works.</p>
+        </div>
+        <p class="subrh">The 10/10/10 read</p>
+        <div class="tenten">
+          <div class="horizon"><p class="h">In 10 minutes</p><p class="val">Just another chore</p><p>The rule reads as a compliance task and nothing more.</p></div>
+          <div class="horizon"><p class="h">In 10 months</p><p class="val">Some brands market their provenance</p><p>Early adopters start using "content you can verify" as a selling point, ahead of the crowd.</p></div>
+          <div class="horizon"><p class="h">In 10 years</p><p class="val">Provenance-by-default is a trust standard</p><p>For institutional content, being able to prove origin is expected, and the rule's lasting value turns out to be here, not in universal text watermarking.</p></div>
+        </div>
+      </div>
+
       <h3 class="rh"><span>The scaling test</span></h3>
       <div class="scaling">
         <p class="q">What if everyone marks</p>
-        <p>If all legitimate content is marked and the marks are removable, the absence of a mark becomes the thing a bad actor wants. Marking then identifies the honest actors more than it catches the dishonest ones. It is still worth doing for accountability and consumer clarity, but not as a control against disinformation.</p>
+        <p>If all legitimate content is marked and marks are removable, the absence of a mark becomes the thing a bad actor wants. Marking then identifies the honest actors more than it catches the dishonest ones. It is still worth doing for accountability and consumer clarity, but not as a control against disinformation.</p>
       </div>
 
-      <!-- TRAPS -->
-      <h3 class="rh"><span>Traps in this chain</span></h3>
+      <h3 class="rh"><span>Traps in these chains</span></h3>
       <ul class="traps">
-        <li><b>Mistaking the machine mark for the binding duty.</b> The enforceable, novel obligation is the human-perceivable disclosure, the visible "this is AI" line, not the fragile invisible watermark. Chasing the watermark spends effort where the law does not actually bind you.</li>
-        <li><b>Only tracing the downside.</b> Success has an upside worth naming: honest provenance becomes a real consumer-trust signal, and a brand that adopts it well can use it as a genuine differentiator. The failure mode is universal anti-deception, not the marking itself.</li>
-        <li><b>Chaining mechanics, not people.</b> The chain matters because platforms strip, bad actors paraphrase and audiences re-read the signal. If you trace only the file formats and forget who responds at each step, you miss where the whole thing turns.</li>
+        <li><b>Mistaking the machine mark for the binding duty.</b> The enforceable, novel obligation is the human-perceivable disclosure, the visible "this is AI" line, not the fragile watermark. Chasing the watermark spends effort where the law does not actually bind you.</li>
+        <li><b>Reading only one chain.</b> The three threads pull in different directions: a risk (A), a market shift (B) and an upside (C). A plan that answers only the arms-race chain misses the concentration risk and the trust opportunity.</li>
+        <li><b>Only tracing the downside.</b> Success has second-order effects too. Chain C is the reminder: honest provenance can become a real consumer-trust signal, and a differentiator for brands that adopt it well.</li>
       </ul>
 
-      <!-- Method disclaimer + context note -->
       <p class="rep-foot">This is a second-order analysis: a structured trace of plausible downstream effects, not a forecast. The chains are argued, not measured, and should be pressure-tested against your own situation.</p>
       <div class="note"><b>Illustrative example.</b> This report is a worked example of the second-order thinking method applied to a real regulatory move. It states the duties and the well-documented limits of the marking technologies, but it does not name specific vendor decisions or fix regulatory dates beyond the 2 August 2026 application of Article 50. Treat it as a way of reasoning, not as legal advice.</div>
 
@@ -371,5 +483,39 @@ footer p { font-family: var(--sans); font-size: 14px; color: var(--muted); margi
     <p>Verboom AI Consulting<span style="color:#c56c47">.</span> Practical AI. Building blocks, ready to use.</p>
     <p>2026-08-17 · Traced: EU AI Act, Article 50, content marking, applicable 2 August 2026</p>
   </div></footer>
+
+  <script>
+  (function () {
+    document.querySelectorAll('[role="tablist"]').forEach(function (list) {
+      var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+      function select(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) panel.hidden = !on;
+        });
+      }
+      list.addEventListener('click', function (e) {
+        var t = e.target.closest('[role="tab"]');
+        if (t) select(t);
+      });
+      list.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(document.activeElement);
+        if (i < 0) return;
+        var n;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        else return;
+        e.preventDefault();
+        tabs[n].focus();
+        select(tabs[n]);
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
