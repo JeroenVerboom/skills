@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Second-order analysis: {{DECISION_SHORT}} | Verboom AI Consulting</title>
+  <meta name="description" content="{{DECISION_SHORT}}: traced past the first-order effect: the consequence chain, feedback loops, the 10/10/10 read, the scaling test, and the revised call.">
+  <style>
+  /* INLINE assets/verboom-report.css HERE, verbatim, inside this style
+     block, so the report is one self-contained file with no external
+     requests. Do not link the stylesheet; paste it. */
+  </style>
+</head>
+<body>
+  <header class="mast"><div class="wrap">
+    <span class="brand">Verboom AI Consulting<span class="dot">.</span></span>
+    <span class="crumb">Second-order thinking</span>
+  </div></header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- Hero: the decision or move being traced -->
+      <p class="eyebrow">Second-order analysis</p>
+      <h1>{{THE_DECISION_OR_MOVE}}</h1>
+      <p class="dek">{{ONE_LINE_FRAMING: the obvious first-order effect, and the promise to trace past it.}}</p>
+
+      <!-- Report head + method note -->
+      <div class="rep-head">
+        <span class="l">And then what</span>
+        <span class="r">{{SUBJECT_LONG}}</span>
+      </div>
+      <p class="methodnote"><b>Second-order thinking</b> traces a decision past its immediate effect by asking "and then what" repeatedly, following how other people respond. These consequences are uncertain, not optional: read them as directions of travel, not predictions.</p>
+
+      <!-- THE REVISED CALL: the page's one forest ground.
+           clabel is one of: Keep, Modify, Reject. -->
+      <div class="call">
+        <span class="clabel">The call: {{KEEP_MODIFY_OR_REJECT}}</span>
+        <p class="ctext">{{THE_REVISED_DECISION_IN_ONE_SENTENCE}}</p>
+        <a class="action" href="#chain">{{THE_SINGLE_NEXT_ACTION}}</a>
+        <p class="csub">{{ONE_PARAGRAPH_RATIONALE: what the consequence chain changed about the naive decision.}}</p>
+      </div>
+
+      <!-- THE CONSEQUENCE CHAIN: the signature ladder.
+           First rung = the calm first-order effect (class "first").
+           Middle rungs = second order. Last rung = third order (class
+           "deep"). Each rung names WHO responds. Three orders is usually
+           enough.
+
+           ONE chain vs MANY: use the single chain below when the move has
+           one logical second-order thread. When it has two or three
+           genuine threads, switch to the tabbed variant (see the
+           "OPTIONAL: MULTIPLE CHAINS" appendix at the foot of this file):
+           each tab carries its own chain PLUS its own feedback loops and
+           its own 10/10/10, so switching tab swaps everything below it.
+           Never invent extra threads to fill tabs. -->
+      <h3 class="rh" id="chain"><span>The consequence chain</span></h3>
+      <ol class="chain">
+        <li class="rung first">
+          <span class="badge">1st<br>order</span>
+          <p class="who">{{WHO_ACTS}}</p>
+          <h4>{{THE_INTENDED_OBVIOUS_RESULT}}</h4>
+          <p>{{DETAIL}}</p>
+        </li>
+        <li class="rung">
+          <span class="badge">2nd<br>order</span>
+          <p class="who">{{WHO_RESPONDS}}</p>
+          <h4>{{HOW_THEY_RESPOND}}</h4>
+          <p>{{DETAIL}}</p>
+        </li>
+        <li class="rung deep">
+          <span class="badge">3rd<br>order</span>
+          <p class="who">{{WHO_RESPONDS_NEXT}}</p>
+          <h4>{{THE_KNOCK_ON_EFFECT}}</h4>
+          <p>{{DETAIL}}</p>
+        </li>
+      </ol>
+
+      <!-- FEEDBACK LOOPS: mark reinforcing (danger, class "reinforcing")
+           vs balancing. Omit the whole section if there are none. -->
+      <h3 class="rh warn"><span>Feedback loops</span><span class="tag no">Watch</span></h3>
+      <div class="loop reinforcing">
+        <span class="ltag">Reinforcing</span>
+        <h4>{{LOOP_NAME}}</h4>
+        <p>{{HOW_THE_CONSEQUENCE_CIRCLES_BACK_TO_AMPLIFY_THE_DECISION}}</p>
+      </div>
+      <div class="loop">
+        <span class="ltag">Balancing</span>
+        <h4>{{LOOP_NAME}}</h4>
+        <p>{{HOW_A_COUNTER_FORCE_DAMPENS_IT}}</p>
+      </div>
+
+      <!-- THE 10/10/10 READ: three horizons -->
+      <h3 class="rh"><span>The 10/10/10 read</span></h3>
+      <div class="tenten">
+        <div class="horizon"><p class="h">In 10 minutes</p><p class="val">{{SHORT_TERM_FEELING}}</p><p>{{DETAIL}}</p></div>
+        <div class="horizon"><p class="h">In 10 months</p><p class="val">{{MID_TERM_REALITY}}</p><p>{{DETAIL}}</p></div>
+        <div class="horizon"><p class="h">In 10 years</p><p class="val">{{LONG_TERM_VERDICT}}</p><p>{{DETAIL}}</p></div>
+      </div>
+
+      <!-- THE SCALING TEST: what if everyone did this -->
+      <h3 class="rh"><span>The scaling test</span></h3>
+      <div class="scaling">
+        <p class="q">What if everyone did this</p>
+        <p>{{DOES_THE_MOVE_SURVIVE_AS_A_NORM_OR_ONLY_AS_AN_EXCEPTION}}</p>
+      </div>
+
+      <!-- TRAPS worth naming (optional) -->
+      <h3 class="rh"><span>Traps in this chain</span></h3>
+      <ul class="traps">
+        <li><b>{{TRAP_NAME}}.</b> {{WHY_IT_MISLEADS}}</li>
+      </ul>
+
+      <!-- Method disclaimer + optional context note -->
+      <p class="rep-foot">This is a second-order analysis: a structured trace of plausible downstream effects, not a forecast. The chains are argued, not measured, and should be pressure-tested against your own situation.</p>
+      <div class="note"><b>{{NOTE_LABEL}}</b> {{NOTE_BODY}}</div>
+
+    </div>
+  </main>
+
+  <footer><div class="wrap">
+    <p>Verboom AI Consulting<span style="color:#c56c47">.</span> Practical AI. Building blocks, ready to use.</p>
+    <p>{{TIMESTAMP}} · Traced: {{SUBJECT_LONG}}</p>
+  </div></footer>
+
+  <!-- ============================================================
+       OPTIONAL: MULTIPLE CHAINS (2-3 threads, tab-navigable)
+       Only when the move has more than one genuine second-order thread.
+       Replace the single "The consequence chain" section above with the
+       block below. The revised call stays ABOVE the tabs (it synthesises
+       across all threads); the scaling test and traps stay BELOW them
+       (they are about the move as a whole). Each panel holds one chain,
+       its own loops and its own 10/10/10. Keep the <script> at the end of
+       <body>. Add or drop a tab + its panel to match the real thread
+       count; give each pair matching id / aria-controls / aria-labelledby.
+
+      <h3 class="rh" id="chains"><span>The consequence chains</span></h3>
+      <p class="chainlede">{{ONE_LINE: one move, N threads, each with its own loop and 10/10/10.}}</p>
+
+      <div class="tabs" role="tablist" aria-label="Consequence chains">
+        <button class="tab" role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true"><span class="n">A</span>{{THREAD_A_NAME}}</button>
+        <button class="tab" role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" tabindex="-1"><span class="n">B</span>{{THREAD_B_NAME}}</button>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="panel-a" aria-labelledby="tab-a">
+        <p class="chainlede">{{WHICH_PEOPLE_THIS_THREAD_FOLLOWS}}</p>
+        <ol class="chain"> ... three rungs, as above ... </ol>
+        <p class="subrh warn">Feedback loop</p>
+        <div class="loop reinforcing"> ... </div>
+        <p class="subrh">The 10/10/10 read</p>
+        <div class="tenten"> ... three horizons ... </div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>
+        ... same structure for thread B ...
+      </div>
+
+  ============================================================ -->
+
+  <!-- Tab behaviour: ARIA tablist with click and arrow-key support.
+       Include this ONLY when the tabbed variant above is used. Inline,
+       so the report stays self-contained. -->
+  <script>
+  (function () {
+    document.querySelectorAll('[role="tablist"]').forEach(function (list) {
+      var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+      function select(tab) {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) panel.hidden = !on;
+        });
+      }
+      list.addEventListener('click', function (e) {
+        var t = e.target.closest('[role="tab"]');
+        if (t) select(t);
+      });
+      list.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(document.activeElement);
+        if (i < 0) return;
+        var n;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') n = 0;
+        else if (e.key === 'End') n = tabs.length - 1;
+        else return;
+        e.preventDefault();
+        tabs[n].focus();
+        select(tabs[n]);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

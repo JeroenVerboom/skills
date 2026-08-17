@@ -24,11 +24,18 @@ Not for: trivial or reversible decisions (check with think-reversibility first),
 ## Procedure
 
 1. **State the decision and its first-order effect.** The intended, obvious result.
-2. **Chain the consequences.** Ask "and then what?" at least three times. Focus on responses from people: who is affected, and what will they do about it?
-3. **Time-shift with 10/10/10** (Suzy Welch's framework from her book 10-10-10, 2009): how does this decision look in 10 minutes, 10 months, and 10 years? The 10-minute answer is usually emotion; the 10-year answer usually reverses it.
-4. **Run the scaling test.** Ask "what if everyone did this?" A move that works as an exception often fails as a norm.
-5. **Spot feedback loops.** Does any consequence circle back to amplify or dampen the original decision? Flag reinforcing loops explicitly; they are what turn small choices into spirals.
-6. **Revise the decision** in light of the full chain. Keep, modify, or reject.
+2. **Chain the consequences.** Ask "and then what?" at least three times. Focus on responses from people: who is affected, and what will they do about it? A move may have one chain or several; find the ones that genuinely exist, do not force a number.
+3. **Stress-test the set for MECE (the adversarial step).** Before you commit to the chains, attack your own decomposition as a sceptic would. This is the difference between a real analysis and a tidy-looking one: overlapping chains double-count, and a missing axis hides the effect that matters. Run these six checks and recut until they pass:
+   - **Same-variable test.** Name the one variable each chain tracks. Two chains tracking the same variable to opposite ends (it erodes / it strengthens) are one axis with two loops: merge them.
+   - **Response-to-failure test.** Does chain Y only exist because chain X already happened? Then Y is X's downstream, not an independent chain: fold it in.
+   - **Endpoint-collision test.** Do two chains end in the same outcome (for example "the market concentrates")? Separate the drivers and assign the outcome to one chain, or you count it twice.
+   - **Actor-not-artifact test.** Does every rung name people changing behaviour? A rung that chains a file format, a mechanism or an artifact is a mechanics slip: recast it as the actor response, or demote it to a note.
+   - **Missing-actor sweep.** List every stakeholder the move touches, including non-target ones (foreign parties, non-adopters, downstream builders). At least one chain must follow each; an unfollowed actor is a gap in coverage.
+   - **Orthogonal-naming test.** Give each chain a one-word axis name. If a name could equally describe another chain, the set is not exclusive: recut until the names are swap-proof.
+4. **Time-shift with 10/10/10** (Suzy Welch's framework from her book 10-10-10, 2009): how does this decision look in 10 minutes, 10 months, and 10 years? The 10-minute answer is usually emotion; the 10-year answer usually reverses it. Run it per chain when there are several.
+5. **Run the scaling test.** Ask "what if everyone did this?" A move that works as an exception often fails as a norm.
+6. **Spot feedback loops.** Does any consequence circle back to amplify or dampen the original decision? Flag reinforcing loops explicitly; they are what turn small choices into spirals.
+7. **Revise the decision** in light of the full chain. Keep, modify, or reject.
 
 ### Worked chains
 
@@ -61,6 +68,37 @@ Not for: trivial or reversible decisions (check with think-reversibility first),
 - The revised decision with a one-paragraph rationale: keep, modify, or reject, and why.
 
 **Quick pass** delivers: "and then what?" answered twice per option, plus a one-line recommendation, in a few sentences total.
+
+## Rendered report (full analysis only)
+
+When the user wants a shareable artifact, or a full analysis has earned one, render the result as a self-contained HTML report in the Verboom Editorial design system. Skip this for a quick pass: a few sentences do not need a document.
+
+The stylesheet and a structure skeleton ship with this skill in `assets/`:
+- `assets/verboom-report.css` — read it and inline the whole file into a `<style>` block, so the report is one standalone HTML file with no external requests.
+- `assets/report-template.html` — the reference structure; follow its classes and section order exactly.
+
+A rendered worked example is in [`examples/`](examples/second-order-eu-watermarking-example.html): the EU AI Act synthetic-content marking duty ("watermarks"), traced past its first order.
+
+**File:** `second-order-[slug]-[timestamp].html`, saved to the user's workspace, then opened.
+
+Section order, reader-first (the call first, then the chain that justifies it):
+1. **Masthead** — the Verboom wordmark (with the terracotta dot), then a serif hero: the eyebrow "Second-order analysis", the decision or move as `h1`, a one-line framing `dek`.
+2. **Report head + method note** — a `rep-head` bar, then the `methodnote`: second-order thinking traces past the immediate effect by asking "and then what", and the chains are directions of travel, not predictions.
+3. **The revised call** — the page's one forest ground. A mint `clabel` reading "The call: Keep / Modify / Reject", the revised decision as one italic serif line (the only italic heading), the single next action as the page's only terracotta fill, then one rationale line.
+4. **The consequence chain** — the signature `ol.chain`. One `li.rung` per order of consequence: the first rung calm (`.first`), the last the knock-on effect (`.deep`). Each rung names WHO responds in the `.who` label, then the effect as an `h4`, then one line of detail. Three orders is usually enough.
+   - **One chain or several.** Most moves have a single logical second-order thread: render one chain, no tabs. When a move genuinely branches into two or three distinct threads, decided by the MECE stress-test in Procedure step 3, not by a wish to fill tabs, render them as tab-navigable chains: a `role="tablist"` of `.tab` buttons over one `.tabpanel` per thread, and each panel carries its own chain plus its own feedback loops and its own 10/10/10, so switching tab swaps everything below it. The revised call stays above the tabs (it synthesises across all threads); the scaling test and traps stay below them (they concern the move as a whole). The tab behaviour is a small inline script (ARIA tablist, click and arrow-key support) that ships in `assets/report-template.html`; keep it inline so the report stays self-contained. Never manufacture extra threads to fill tabs: if one chain is the honest answer, that is the answer.
+5. **Feedback loops** — a `.loop` per loop, `reinforcing` (the danger tint) or balancing. Omit the section if there are none.
+6. **The 10/10/10 read** — three `.horizon` cards: 10 minutes, 10 months, 10 years. Show it only where a horizon changes the answer.
+7. **The scaling test** — the `.scaling` callout: what if everyone did this.
+8. **Traps** — optional `ul.traps`, the misreadings this chain invites, including any upside of success the downside-only reflex would miss.
+9. **Footer** — the method disclaimer verbatim (this is a structured trace of plausible effects, not a forecast), an optional `note` for regulated or illustrative topics, and a site footer with the timestamp and what was traced.
+
+Design rules the report must obey (all encoded in the CSS, do not override them):
+- Warm paper ground, warm neutrals only. Never pure white, never cool grey. The revised call is the ONE forest ground; no other block sits on forest, and there is no dark theme anywhere else.
+- Forest and terracotta are meaning, not decoration: forest marks the settled call and balancing forces; terracotta marks the one next action (its only fill) and, as a tint, the danger of a reinforcing loop. The terracotta fill stays well under 10% of the page.
+- 8-12px radii on the call ground and the cards; 2px ink rules frame the masthead and report head; 1px stone hairlines divide rows; no shadows, no gradients, no background textures.
+- Two type families only: EB Garamond for statements and reading text (falls back to Georgia), Inter for labels and UI (falls back to system-ui). No external font requests. UPPERCASE only at 12px label-caps. Sentence case everywhere else. No emoji, no exclamation marks, no em dashes: use a comma, a colon or a new sentence.
+- Keep every rung about people, not mechanics: the `.who` label forces the question the method turns on.
 
 ## Traps
 
