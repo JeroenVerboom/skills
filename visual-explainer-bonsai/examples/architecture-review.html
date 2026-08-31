@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review path</title>
+  <style>
+    :root { --paper:#fffdf0; --ink:#1a1a1a; --terra:#c56c47; --forest:#0b3d33; --stone:#e9e6d6; }
+    * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 Arial,sans-serif; }
+    main { width:min(100% - 2rem, 1100px); margin:3rem auto; } h1 { margin:.25rem 0 1rem; font:400 clamp(2.4rem,7vw,5rem)/.95 Georgia,serif; letter-spacing:-.04em; }
+    .label { font-size:.75rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; } .panel { border:2px solid var(--ink); border-radius:40px; padding:clamp(1.5rem,4vw,3rem); }
+    figure { margin:2rem 0; } svg { display:block; width:100%; height:auto; } figcaption { margin-top:.75rem; color:#5f5e5e; } .next { background:var(--forest); color:var(--paper); }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">Architecture review</p>
+    <h1>The review path has one decision point.</h1>
+    <p>Example compound explainer. The figure shows the only path that changes the release decision.</p>
+    <figure class="panel">
+      <svg viewBox="0 0 960 360" role="img" aria-labelledby="review-path-title review-path-desc" xmlns="http://www.w3.org/2000/svg">
+        <title id="review-path-title">Review path</title>
+        <desc id="review-path-desc">A change moves from evidence to review, then either ships or returns to the author.</desc>
+        <defs><marker id="review-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1a1a1a"/></marker></defs>
+        <rect width="960" height="360" fill="#fffdf0"/>
+        <path d="M 240 180 H 360" fill="none" stroke="#1a1a1a" stroke-width="2" marker-end="url(#review-arrow)"/>
+        <path d="M 600 180 H 720" fill="none" stroke="#c56c47" stroke-width="2" marker-end="url(#review-arrow)"/>
+        <rect x="40" y="132" width="200" height="96" rx="8" fill="#fcfaed" stroke="#1a1a1a" stroke-width="2"/>
+        <text x="140" y="172" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700">Evidence</text><text x="140" y="200" text-anchor="middle" font-family="Arial" font-size="16">Source checked</text>
+        <rect x="360" y="132" width="240" height="96" rx="8" fill="#ffdbce" stroke="#c56c47" stroke-width="2"/>
+        <text x="480" y="172" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700">Review</text><text x="480" y="200" text-anchor="middle" font-family="Arial" font-size="16">Decision point</text>
+        <rect x="720" y="132" width="200" height="96" rx="8" fill="#fcfaed" stroke="#1a1a1a" stroke-width="2"/>
+        <text x="820" y="172" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700">Release</text><text x="820" y="200" text-anchor="middle" font-family="Arial" font-size="16">Approved change</text>
+      </svg>
+      <figcaption>The review is the only point where an evidenced change becomes a release.</figcaption>
+    </figure>
+    <section class="panel next"><p class="label">Next action</p><p>Review the evidence before deciding whether to release.</p></section>
+  </main>
+</body>
+</html>
